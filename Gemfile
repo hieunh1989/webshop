@@ -3,7 +3,17 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'mongoid'
+gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
+gem 'bson'
+gem 'bson_ext'
+
+gem 'devise'
+
+#Upload image
+gem 'rack-cache', :require =>'rack/cache'
+gem 'dragonfly'
+gem 'mongo'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

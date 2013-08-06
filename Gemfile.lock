@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: 85e146637503522939b3a6b942c84d1bbc55c00a
+  specs:
+    mongoid (4.0.0)
+      activemodel (~> 4.0.0)
+      moped (~> 1.5)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.22)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +37,10 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.12)
+    bcrypt-ruby (3.1.1)
+    bson (1.9.1)
+    bson_ext (1.9.1)
+      bson (~> 1.9.1)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -35,6 +49,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    devise (3.0.1)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.3)
+    dragonfly (0.9.15)
+      multi_json (~> 1.0)
+      rack
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -52,9 +74,16 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     minitest (4.7.5)
+    mongo (1.9.1)
+      bson (~> 1.9.1)
+    moped (1.5.0)
     multi_json (1.7.8)
+    origin (1.1.0)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0)
@@ -103,14 +132,23 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson
+  bson_ext
   coffee-rails (~> 4.0.0)
+  devise
+  dragonfly
   jbuilder (~> 1.2)
   jquery-rails
+  mongo
+  mongoid!
+  rack-cache
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
