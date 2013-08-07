@@ -5,4 +5,5 @@ class Comment
   field :content, type: String
 
   belongs_to :product
+  belongs_to :user
 end

@@ -1,0 +1,7 @@
+bundle exec rspec
+
+# Run only model specs
+bundle exec rspec spec/models
+
+# Run only specs for AccountsController
+bundle exec rspec spec/controllers/accounts_controller_spec.rb

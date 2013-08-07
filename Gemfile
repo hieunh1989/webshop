@@ -9,10 +9,17 @@ gem 'bson_ext'
 
 gem 'devise'
 
+gem 'settingslogic'
+
 #Upload image
 gem 'rack-cache', :require =>'rack/cache'
 gem 'dragonfly'
 gem 'mongo'
+
+# Generate sample data
+gem 'fabrication'
+gem 'faker'
+gem 'rspec-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

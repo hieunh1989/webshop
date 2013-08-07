@@ -1,0 +1,21 @@
+# config/application.yml
+defaults: &defaults
+  prices:
+    - 120000
+    - 90000
+    - 100000
+
+  roles:
+    admin: admin
+    manager: manager
+    customer: customer
+    
+  admin_email: "admin@webshop.com"
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

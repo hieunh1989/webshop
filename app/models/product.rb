@@ -7,6 +7,6 @@ class Product
   field :price, type: Float
 
   has_many :product_images
-  has_many :commnets
+  has_many :comments
   has_and_belongs_to_many :line_items
 end

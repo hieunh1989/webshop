@@ -4,4 +4,6 @@ class ProductImage
 
   field :photo_uid
   image_accessor :photo
+
+  belongs_to :product  
 end
