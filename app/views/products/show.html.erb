@@ -1,0 +1,9 @@
+<article class="product">  
+  Product name: <%= @product.name %> <br />
+  Price: <%= @product.price %><br />
+
+  <% @product.product_images.each do |pi| %>
+    <%= image_tag pi.photo.url  %>
+  <% end %>
+  <br />
+</article>
