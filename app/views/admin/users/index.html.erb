@@ -10,23 +10,31 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
+          <th class="first">Name</th>
+          <th>
             <%= t("activerecord.attributes.admin_user._id", :default => t("activerecord.labels._id", :default => "_id")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th>
+            <%= t("web-app-theme.created_at", :default => "Created at")  %>
+          </th>
+          <th>
+            <%= t("web-app-theme.role", :default => "Role")  %>
+          </th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @users.each do |user| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= user.id %>
+            <%= user.first_name %> <%= user.last_name %>
           </td>
                     <td>
             <%= link_to user._id, admin_user_path(user) %>
           </td>
-                    <td>
+          <td>
             <%= user.created_at %>
+          </td>
+          <td>
+            <%= user.role %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_user_path(user) %> |

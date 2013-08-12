@@ -10,22 +10,28 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
+          <th class="first">Name</th>
+          <th>
             <%= t("activerecord.attributes.admin_product._id", :default => t("activerecord.labels._id", :default => "_id")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th>
+            <%= t("activerecord.attributes.admin_product.price", :default => t("activerecord.labels.price", :default => "price")) %>
+          </th>
+          <th>
+            <%= t("web-app-theme.created_at", :default => "Created at")  %>
+          </th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @products.each do |product| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= product.id %>
+            <%= product.name %>
           </td>
-                    <td>
+          <td>
             <%= link_to product._id, admin_product_path(product) %>
           </td>
-                    <td>
+          
+          <td>
             <%= product.created_at %>
           </td>
           <td class="last">
