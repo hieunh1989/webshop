@@ -9,8 +9,12 @@ gem 'bson'
 gem 'bson_ext'
 
 gem 'devise'
-
+gem 'simple_form'
+gem 'country_select'
 gem 'settingslogic'
+
+gem 'web-app-theme'
+gem 'protected_attributes'
 
 #Upload image
 gem 'rack-cache', :require =>'rack/cache'

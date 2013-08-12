@@ -3,6 +3,7 @@ Webshop::Application.routes.draw do
   root "pages#home"
 
   resources :users
+
   resources :products do
     collection do
       get :home
@@ -11,5 +12,9 @@ Webshop::Application.routes.draw do
 
   namespace :admin do
     resources :users
+  end
+
+  namespace :admin do
+    resources :products
   end
 end
