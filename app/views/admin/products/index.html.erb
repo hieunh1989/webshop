@@ -12,7 +12,7 @@
         <tr>             
           <th class="first">Name</th>
           <th>
-            <%= t("activerecord.attributes.admin_product._id", :default => t("activerecord.labels._id", :default => "_id")) %>
+            <%= t("web-app-theme.description", :default => "Description")  %>
           </th>
           <th>
             <%= t("activerecord.attributes.admin_product.price", :default => t("activerecord.labels.price", :default => "price")) %>
@@ -28,7 +28,8 @@
             <%= product.name %>
           </td>
           <td>
-            <%= link_to product._id, admin_product_path(product) %>
+            <%#= link_to product.description, admin_product_path(product) %>
+            <%= product.description %>
           </td>
           <td>
             <%= product.price %>

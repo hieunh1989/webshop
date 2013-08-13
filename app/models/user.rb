@@ -14,6 +14,8 @@ class User
   field :email,              :type => String
   field :encrypted_password, :type => String
 
+
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -47,5 +49,9 @@ class User
 
   def admin?
     self.role == 'admin'
+  end
+
+  def fullname
+    [first_name, last_name].join(' ')
   end
 end
