@@ -17,4 +17,13 @@ Webshop::Application.routes.draw do
   namespace :admin do
     resources :products
   end
+
+  namespace :admin do
+    resources :comments
+  end
+
+  namespace :admin do
+    resources :orders
+  end
+
 end

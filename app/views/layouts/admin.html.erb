@@ -22,7 +22,15 @@
           <li class="<%= controller.controller_path == 'admin/users' ? 'active' : '' %>">
             <a href="<%= admin_users_path %>">Users</a>
           </li>
-         <li class="<%= controller.controller_path == 'admin/products' ? 'active' : '' %>"><a href="<%= admin_products_path %>">Products</a></li></ul>
+          <li class="<%= controller.controller_path == 'admin/products' ? 'active' : '' %>">
+            <a href="<%= admin_products_path %>">Products</a>
+          </li>
+          <li class="<%= controller.controller_path == 'admin/comments' ? 'active' : '' %>">
+            <a href="<%= admin_comments_path %>">Comments</a>
+          </li>
+          <li class="<%= controller.controller_path == 'admin/orders' ? 'active' : '' %>">
+            <a href="<%= admin_orders_path %>">Orders</a>
+          </li>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
