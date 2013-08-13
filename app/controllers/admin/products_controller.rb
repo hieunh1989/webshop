@@ -17,6 +17,11 @@ class Admin::ProductsController < Admin::BaseController
     redirect_to admin_produts_path
   end
 
+  def new 
+    @product = Product.new
+    @product.product_images.build
+  end
+
   def create
     @product = Product.new(params[:product])
     if @product.save
@@ -33,5 +38,9 @@ class Admin::ProductsController < Admin::BaseController
     else
       render action: "edit"
     end
+  end
+
+  def new_product_params
+    params.require(:product).permit( :id, :name, product_images_attributes: [:id, :photo])
   end
 end
