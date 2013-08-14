@@ -13,7 +13,7 @@
         <a href="<%= new_user_registration_path %>">Sign up</a>
       </li>
       <li>
-        <a class="fblogin" href="#">Login width Facebook</a>
+        <%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
       </li>
     <% end %>
     </ul>

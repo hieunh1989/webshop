@@ -14,8 +14,6 @@ class User
   field :email,              :type => String
   field :encrypted_password, :type => String
 
-
-
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -43,6 +41,8 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  field :fb_access_token, type :String
 
   has_many :comments
   has_many :orders

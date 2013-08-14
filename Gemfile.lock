@@ -186,6 +186,7 @@ DEPENDENCIES
   dragonfly
   fabrication
   faker
+  faraday
   jbuilder (~> 1.2)
   jquery-rails
   koala (~> 1.7.0rc1)
