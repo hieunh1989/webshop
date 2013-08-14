@@ -1,5 +1,21 @@
 <header id="header">
   <div class="main main-header">
-    This is header
+    <ul class="menu menu-2">
+    <% if signed_in? %>  
+      <li>
+        <a href="<%= destroy_user_session_path %>">Sign out</a>
+      </li>
+    <% else %>
+      <li>
+        <a href="<%= user_session_path %>">Sign in</a>
+      </li>
+      <li>
+        <a href="<%= new_user_registration_path %>">Sign up</a>
+      </li>
+      <li>
+        <a class="fblogin" href="#">Login width Facebook</a>
+      </li>
+    <% end %>
+    </ul>
   </div>  
 </header>

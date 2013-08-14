@@ -1,4 +1,10 @@
-
+   <div class="fieldWithErrors">
+    <% @comment.errors.full_messages.each do |message| %>
+      <div class="error">
+        <p><%= message %></p>
+      </div>
+    <% end -%>
+  </div>
   <div class="group">
     <%= f.label :_id, t("activerecord.attributes.comment._id", :default => ""), :class => :label %>
     <%= f.text_field :_id, :class => 'text_field' %>

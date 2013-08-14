@@ -13,6 +13,8 @@ gem 'simple_form'
 gem 'country_select'
 gem 'settingslogic'
 
+gem "koala", "~> 1.7.0rc1"
+
 gem 'web-app-theme'
 gem 'protected_attributes'
 

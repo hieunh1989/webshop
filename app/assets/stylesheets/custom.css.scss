@@ -7,8 +7,26 @@ html, body {
   position: relative;
   overflow: hidden;
 }
+#header {
+  background: #252525;
+  height: 60px;
+}
 .main {
   width: 1200px;
   margin: auto;
 }
 .admin-controll {}
+.menu {
+  
+}
+.menu-2 {
+  float: right;
+  margin-top: 20px;
+}
+.menu-2 li {
+  float: left;
+  list-style: none;
+  a {
+  padding: 10px 10px;
+  }
+}
