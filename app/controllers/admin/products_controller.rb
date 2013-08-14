@@ -12,7 +12,8 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def destroy
-    Product.find(params[:id]).destroy
+    @product = Product.find(params[:id])
+    @product.destroy
     flash[:success] = "Produt delete."
     redirect_to admin_produts_path
   end

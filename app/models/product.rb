@@ -6,7 +6,7 @@ class Product
   field :description, type: String
   field :price, type: Float
 
-  has_many :product_images, class_name: "ProductImage", autosave: true, dependent: :destroy
+  has_many :product_images
   has_many :comments
   has_and_belongs_to_many :line_items
 

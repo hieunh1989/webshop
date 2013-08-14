@@ -5,5 +5,5 @@ class ProductImage
   field :photo_uid
   image_accessor :photo
 
-  belongs_to :product, class_name: "Product"
+  belongs_to :product  
 end
