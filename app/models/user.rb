@@ -13,6 +13,7 @@ class User
   field :role, type: String
   field :email,              :type => String
   field :encrypted_password, :type => String
+  field :fb_access_token,    :type => String
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -41,8 +42,6 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-
-  field :fb_access_token, type :String
 
   has_many :comments
   has_many :orders
