@@ -13,7 +13,8 @@
         <a href="<%= new_user_registration_path %>">Sign up</a>
       </li>
       <li>
-        <%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
+        <%#= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
+       <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
       </li>
     <% end %>
     </ul>

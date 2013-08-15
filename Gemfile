@@ -9,6 +9,8 @@ gem 'bson'
 gem 'bson_ext'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'country_select'
 gem 'settingslogic'

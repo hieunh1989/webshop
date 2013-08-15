@@ -1,9 +1,8 @@
 Webshop::Application.routes.draw do  
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "/users/omniauth_callbacks" }
   root "pages#home"
 
-  get "/oauth/redirect" => "oauth#redirect"
-
+  #get "/oauth/redirect" => "oauth#redirect"
   resources :users
   resources :products do
     collection do
@@ -17,5 +16,7 @@ Webshop::Application.routes.draw do
     resources :comments
     resources :orders
   end
+
+ # devise_for :users, :controllers => { :omniauth_callbacks => "/users/omniauth_callbacks" }
 
 end
