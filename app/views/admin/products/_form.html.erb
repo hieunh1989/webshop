@@ -25,9 +25,8 @@
 
   <div class="group">
     <%= f.fields_for :product_images do |d| %>
-      <%= d.label :photo, :label => 'Upload product_images'  %>
-      <%= d.file_field :photo_uid %>
-    <% end %>
+      <%= d.file_field :photo %>
+    <% end -%>
   </div>
         
 <div class="group navform wat-cf">

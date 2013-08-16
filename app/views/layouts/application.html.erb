@@ -13,9 +13,18 @@
 <body>
   <div id="page">
     <%= render 'layouts/header' %>
+    
+    <div class="flash">
+      <% flash.each do |type, message| -%>
+        <div class="message <%= type %>">
+          <p><%= message %></p>
+        </div>
+      <% end -%>
+    </div>
+
     <%= render 'layouts/slide' %>
     <div id="content">
-      <div class="main main-content"  
+      <div class="main main-content">
         <%= yield %>
       </div>  
     </div>

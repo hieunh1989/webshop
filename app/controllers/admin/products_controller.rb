@@ -7,7 +7,8 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find(params[:id])
   end
 
-  def edit 
+  def edit
+    # binding.pry
     @product = Product.find(params[:id])
   end
 
@@ -35,13 +36,9 @@ class Admin::ProductsController < Admin::BaseController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
-      redirect_to admin_products_path, notice: "Cap nhap thanh cong #{@product.name}"
+      redirect_to admin_product_path(@product), notice: "Cap nhap thanh cong #{@product.name}"
     else
       render action: "edit"
     end
-  end
-
-  def new_product_params
-    params.require(:product).permit( :id, :name, product_images_attributes: [:id, :photo])
   end
 end

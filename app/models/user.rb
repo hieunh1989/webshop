@@ -6,8 +6,11 @@ class User
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  
   devise :omniauthable, :omniauth_providers => [:facebook]
+
+  field :avatar_uid
+  image_accessor :avatar
 
   ## Database authenticatable
   field :first_name,         :type => String
@@ -16,6 +19,9 @@ class User
   field :email,              :type => String
   field :encrypted_password, :type => String
   field :fb_access_token,    :type => String
+  field :provider, type: String
+  field :uid, type: String
+  field :name, type: String
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -58,14 +64,19 @@ class User
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-      unless user
-        user = User.create(name:auth.extra.raw_info.name,
-                             provider:auth.provider,
-                             uid:auth.uid,
-                             email:auth.info.email,
-                             password:Devise.friendly_token[0,20]
-                             )
-      end
+    unless user
+      user = User.create(first_name: auth.info.first_name,
+                          last_name: auth.info.last_name,
+                          provider:auth.provider,
+                          uid:auth.uid,
+                          email:auth.info.email,
+                          role:'customer',
+                          password:Devise.friendly_token[0,20]
+                          )
+      user.avatar_url = auth.info.image
+      user.save!
+    end
+    user
   end
 
 end

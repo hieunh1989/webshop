@@ -9,8 +9,4 @@ class ApplicationController < ActionController::Base
       return root_path
     end
   end
-
-  def facebook_cookies
-    @facebook_cookies ||= Koala::Facebook::OAuth.new(YOUR_APP_ID, YOUR_SECRET).get_user_info_from_cookie(cookies)
-  end
 end
