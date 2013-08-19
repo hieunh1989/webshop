@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'country_select'
 gem 'settingslogic'
 
+#Heroku
+gem 'rails_12factor', group: :production
+
 gem "koala", "~> 1.7.0rc1"
 gem "faraday"
 
