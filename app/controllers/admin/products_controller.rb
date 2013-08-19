@@ -21,22 +21,22 @@ class Admin::ProductsController < Admin::BaseController
 
   def new 
     @product = Product.new
-    @product.product_images.build
+    3.times { @product.product_images.build }
   end
 
   def create
     @product = Product.new(params[:product])
     if @product.save
-      redirect_to admin_product_path(@product), notice: "success"
+      redirect_to admin_product_path(@product), notice: "Create success #{@product.name}"
     else
-      render 'new', notice: "Cap nhap thanh cong"
+      render 'new', notice: "Product not created"
     end
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
-      redirect_to admin_product_path(@product), notice: "Cap nhap thanh cong #{@product.name}"
+      redirect_to admin_product_path(@product), notice: "Update success #{@product.name}"
     else
       render action: "edit"
     end

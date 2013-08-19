@@ -8,25 +8,25 @@
   <div class="group">
     <%= f.label :_id, t("activerecord.attributes.comment._id", :default => ""), :class => :label %>
     <%= f.text_field :_id, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">EnterEnterEnter: the id of comment</span>
   </div>
 
   <div class="group">
     <%= f.label :content, t("activerecord.attributes.comment.content", :default => "Content"), :class => :label %>
     <%= f.text_field :content, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Enter: the content of comment</span>
   </div>
 
   <div class="group">
     <%= f.label :product_id, t("activerecord.attributes.comment.product_id", :default => "Product"), :class => :label %>
-    <%= f.text_field :product_id, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.text_field :product_id, disabled: true, :class => 'text_field' %>
+    <span class="description">The product id contain comment</span>
   </div>
 
   <div class="group">
     <%= f.label :user_id, t("activerecord.attributes.comment.user_id", :default => "User"), :class => :label %>
-    <%= f.text_field :user_id, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.text_field :user_id, disabled: true, :class => 'text_field' %>
+    <span class="description">The user id created comment</span>
   </div>
         
 <div class="group navform wat-cf">

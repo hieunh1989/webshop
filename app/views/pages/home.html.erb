@@ -2,7 +2,9 @@
   <% @products.each do |p| %>
     Product name: <%= p.name %> <br />
     Price: <%= p.price %><br />
-      <%= image_tag p.product_images.sample.photo.url  %>
+    <% p.product_images.each do |pi| %>
+      <%= image_tag pi.photo.url  %>
+    <% end -%>
     <br />
   <% end %>
 </article>

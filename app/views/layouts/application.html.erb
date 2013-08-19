@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="page">
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/admin_shared/header' %>
     
     <div class="flash">
       <% flash.each do |type, message| -%>
@@ -22,13 +22,13 @@
       <% end -%>
     </div>
 
-    <%= render 'layouts/slide' %>
+    <%= render 'layouts/admin_shared/slide' %>
     <div id="content">
       <div class="main main-content">
         <%= yield %>
       </div>  
     </div>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/admin_shared/footer' %>
   </div>
 </body>
 </html>
