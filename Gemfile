@@ -16,9 +16,6 @@ gem 'simple_form'
 gem 'country_select'
 gem 'settingslogic'
 
-#Heroku
-gem 'rails_12factor', group: :production
-
 gem "koala", "~> 1.7.0rc1"
 gem "faraday"
 
@@ -62,6 +59,11 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :production do
+  gem 'fog' # for Amazon S3
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
