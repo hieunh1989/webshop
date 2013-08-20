@@ -9,9 +9,6 @@ class User
   
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  field :avatar_uid
-  image_accessor :avatar
-
   ## Database authenticatable
   field :first_name,         :type => String
   field :last_name,          :type => String
@@ -22,6 +19,8 @@ class User
   field :provider, type: String
   field :uid, type: String
   field :name, type: String
+  field :avatar_uid
+  image_accessor :avatar
 
   ## Recoverable
   field :reset_password_token,   :type => String
