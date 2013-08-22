@@ -1,4 +1,4 @@
-set :application, 'moveaide'
+set :application, 'webshop'
 
 require "rvm/capistrano"
 require 'capistrano/ext/multistage'
@@ -6,7 +6,7 @@ require 'bundler/capistrano'
 require 'capistrano_colors'
 
 load 'deploy'
-set :rvm_ruby_string, "ruby-1.9.3-p448@webshop"
+set :rvm_ruby_string, "1.9.3@#{application}"
 set :stages, %w(staging production)
 set :default_stage, 'production'
 task :staging do
