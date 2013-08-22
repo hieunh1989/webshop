@@ -1,22 +1,75 @@
 <header id="header">
-  <div class="main main-header">
-    <ul class="menu menu-2">
-    <% if signed_in? %>  
-      <li>
-        <a href="<%= destroy_user_session_path %>">Sign out</a>
-      </li>
-    <% else %>
-      <li>
-        <a href="<%= user_session_path %>">Sign in</a>
-      </li>
-      <li>
-        <a href="<%= new_user_registration_path %>">Sign up</a>
-      </li>
-      <li>
-        <%#= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-      </li>
-    <% end %>
+  <div id="top-header">
+    <div class="main main-top-header">
+      <ul class="menu main-menu">
+        <li>
+          <%= link_to "Home", root_path, :class => "active" %>
+        </li>
+        <li>
+          <%= link_to "New products", root_path %>
+        </li>
+        <li>
+          <%= link_to "Contact", root_path %>
+        </li>
+      </ul>
+      <ul class="menu user-menu">
+      <% if signed_in? %>  
+        <li>
+          <a href="<%= destroy_user_session_path %>">Sign out</a>
+        </li>
+      <% else %>
+        <li>
+          <a href="<%= user_session_path %>">Sign in</a>
+        </li>
+        <li>
+          <a href="<%= new_user_registration_path %>">Sign up</a>
+        </li>
+        <li>
+          <%#= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div> 
+  <!-- end top-header -->
+  <div class="celtral-header">
+    <div class="main main-celtral-header">
+      <h1 id="logo">
+        <a class="logo">
+          <img src="/assets/logo.PNG" width="359" height="123" />
+        </a>
+      </h1>
+    </div>
+    <div class="check-cart">
+      <label>
+        <% link_to "Shopping cart", "root_path" %>
+      </label>
+      <div class="count-item">
+        <span>Now in your cart</span>
+        <span class="count"> </span>
+      </div>
+    </div>
+  </div>
+  <!-- end celtral-header -->
+  <nav id="catalog-menu">
+    <ul class="menu">
+      <li><%= link_to "Men", root_path, :class => "active"%></li>
+      <li><%= link_to "women"%></li>
+      <li><%= link_to "collection"%></li>
+      <li><%= link_to "T-SHIRT"%></li>
+      <li><%= link_to "BAG"%></li>
+      <li><%= link_to "CLOTHES"%></li>
+      <li><%= link_to "HAT"%></li>
+      <li><%= link_to "GLASS"%></li>
+      <li><%= link_to "SKIRT"%></li>
     </ul>
-  </div>  
+    <div id="search-form">
+      <form action="">
+          <input type="text" id="search">
+            <input type="submit" id="submit" value="search">
+        </form>
+    </div>
+  </nav>
+  <!-- end catalog-menu -->
 </header>
