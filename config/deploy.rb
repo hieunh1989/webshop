@@ -4,7 +4,7 @@ require 'bundler/capistrano'
 require 'capistrano_colors'
 
 load 'deploy'
-set :rvm_ruby_string, "ruby-1.9.3-p448@webshop"
+set :rvm_ruby_string, "1.9.3@webshop"
 set :stages, %w(staging production)
 set :default_stage, 'production'
 task :staging do
