@@ -15,6 +15,8 @@ gem 'fb_graph'
 gem 'simple_form'
 gem 'country_select'
 gem 'settingslogic'
+gem 'therubyracer', :platforms => :ruby
+gem 'execjs'
 
 gem "koala", "~> 1.7.0rc1"
 gem "faraday"
@@ -64,6 +66,13 @@ end
 group :production do
   gem 'fog' # for Amazon S3
   gem 'rails_12factor'
+end
+
+group :deploy do
+  gem 'capistrano'
+  gem 'capistrano-ext', :require => false
+  gem 'capistrano_colors', :require => false
+  gem 'rvm-capistrano', :require => false
 end
 
 # Use ActiveModel has_secure_password
