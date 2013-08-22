@@ -1,10 +1,22 @@
-<article class="product">
-  <% @products.each do |p| %>
-    Product name: <%= p.name %> <br />
-    Price: <%= p.price %><br />
-    <% p.product_images.each do |pi| %>
-      <%= image_tag pi.photo.url  %>
-    <% end -%>
-    <br />
-  <% end %>
-</article>
+<div id="content">
+  <h2 id="content-title">Products</h2>
+  <div class="view-product">
+    <% @products.each do |p| %>
+      <article class="product product-<%= cycle("odd", "even") %>">
+        <div class="field field-image">
+          <%= link_to "view", product_path(p.id) %>
+          <%= image_tag p.product_images.sample.photo.url  %>
+        </div>
+        <div class="field field-title">
+          <%= link_to "#{p.name}", product_path(p.id) %>
+        </div>
+        <div class="field field-price">
+          Price: <%= p.price %><br />
+        </div>
+        <div class="field field-add-to-cart">
+          <a href="#">add to cart</a>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</div>

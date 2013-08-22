@@ -1,32 +1,239 @@
 @import "bootstrap";
-html, body {
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "myriad consender";
+  src: url("fonts/MYRIADPRO-COND.OTF") 
+}
+@font-face {
+  font-family: "myriad consender";
+  src: url("fonts/MYRIADPRO-BOLDCOND.OTF");
+  font-weight: bold;  
+}
+@font-face {
+  font-family: "proxima";
+  src: url("fonts/VNF-ProximaNova-Light.ttf");
+  font-weight: bold;  
+}
+body {
+  background:url(bg.jpg) no-repeat center top #e8e8e8;
   width: 100%;
+  font-family: proxima;
+  font-size: 15px;
+}
+a, h1, h2 {
+  font-family: "myriad consender";
+  text-decoration:none; 
+}
+.main {
+  width: 1170px;
+  margin: auto;
+  position:relative;  
+  overflow: hidden;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none; 
 }
 #header, #content, #slide, #footer {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
-#header {
+#top-header {
   background: #252525;
-  height: 60px;
-}
-.main {
-  width: 1200px;
-  margin: auto;
+  height: 40px;
 }
 .admin-controll {}
 .menu {
   
 }
-.menu-2 {
-  float: right;
-  margin-top: 20px;
+.main-menu {
+    float: left;  
 }
-.menu-2 li {
+.main-menu .active , .main-menu a:hover {
+    background: #d13b07;
+}
+.main-menu li {
+    float: left;
+}
+.main-menu li a {
+    font-family: myriad consender;
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.user-menu {
+    float: right;
+}
+.user-menu li {
+    float: left;
+}
+.user-menu li a {
+    color: white;
+    font-family: myriad consender;
+    font-size: 17px;
+    text-decoration: none;
+    display: block;
+    padding: 12px 7px;
+}
+#logo {}
+.logo {
+    display: block;
+    float: left;
+    padding-top: 20px;
+}
+.logo img {}
+#catalog-menu {
+  width: 1170px;
+  margin: auto;
+  height: 50px;
+  overflow: hidden;
+  background:url(bgmenu.png);
+  border-radius: 10px;
+}
+#catalog-menu li {
   float: left;
-  list-style: none;
-  a {
-  padding: 10px 10px;
-  }
+}
+#catalog-menu .menu {
+  float: left;
+}
+#catalog-menu li a {
+  display: block;
+  padding: 13px 25px;
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-family: myriad consender;
+  font-weight: bold;
+  line-height: 36px;
+}
+#catalog-menu li a:hover, #catalog-menu li .active {
+  background: black;
+  text-decoration: none;
+}
+#search-form {
+  float: right;
+  margin-right: 20px;
+}
+#search-form form {
+  background: url(search-form.png) no-repeat left top;
+  height: 33px;
+  width: 252px;
+  margin-top: 10px;
+}
+#search-form form #search {
+  background: none;
+  border: none;
+  height: 25px;
+  padding: 4px 0;
+  margin-left: 10px;
+  width: 198px;
+  font-family: myriad pro;
+}
+#search-form form #submit {
+  background: none;
+  border: none;
+  text-indent: -9999px;
+  width: 40px;
+  height: 33px;
+  cursor: pointer;
+}
+.col {
+  width: 370px;
+  float: left;
+  margin-right: 30px;
+}
+.col a:hover {
+  opacity: 0.7;
+}
+.col-3 {
+  margin-right: 0px;
+}
+#content-title {
+  font-family: myriad consender;
+  font-weight: normal;
+  font-size: 25px;
+  color: #d13b07;
+  margin: 20px 0;
+  border-bottom: 1px solid grey;
+}
+article.product {
+  width: 270px;
+  margin-right: 30px;
+  padding-bottom: 20px;
+  float: left;
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+.field-image {
+  border: 1px solid #999999;
+  width: 268px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  height: 290px;
+}
+.field-image img {
+  width: 270px;
+  height: 292px;
+}
+.field-title {}
+.field-title a {}
+.field-price {
+  margin-top: 29px;
+  color: #d13b07;
+  float: left;
+  font-family: myriad consender;
+  font-weight: bold;
+  font-size: 22px;
+}
+.field-add-to-cart {
+  float: right;
+}
+.field-add-to-cart a {
+  margin-top: 20px;
+  display: block;
+  padding: 10px 20px 3px 20px;
+  font-size: 20px;
+  color: white;
+  background: #d13b07;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.field-add-to-cart a:hover {
+  background: black;
+  text-decoration: none;
+}
+.view-product .product:nth-child(4n+4) {
+  margin-right: 0px;
+}
+.field-image a {
+  display: block;
+  width: 100%;   
+  position: absolute;
+  height: 290px;
+  -webkit-transition: all linear 0.3s;
+  top: -270px;
+  text-indent: -9999px;
+}
+.field-image:hover a {
+  background: url(hover-product.png) center top;
+  top: 0px;
+}
+.field.field-title a {
+  color: #252525;
+  font-size: 20px;
+  text-decoration: none;
+}
+.field.field-title a:hover {
+  color: #d13b07;
 }
