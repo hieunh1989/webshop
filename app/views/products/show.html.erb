@@ -21,24 +21,12 @@
       <option value="6">6</option>
       <option value="7">7</option>
     </select>
-    <button class="chateau_btn_basket" id="buy_now_btn">buy now</button>
+    <button class="add-to-cart" id="buy_now_btn">buy now</button>
   </div>
 </article>
 
 <script type="text/javascript">
-function add_to_cart() {
-  var quantity = $('.quantity_number').val();
-  var item = {
-    product : {
-      name: $('.field-title').html(),
-      price: $('.field-price').html(),
-      link: ($(location).attr('href'))
-    },
-    quantity: quantity
-  }
-}
-
-$('.chateau_btn_basket').click(function() {
+$('.add-to-cart').click(function() {
   var soluong = $('.quantity_number').val();
   var tongsoluong = $('.quantity_number option').length;
   add_to_cart(soluong, tongsoluong);
@@ -65,7 +53,7 @@ $('.chateau_btn_basket').click(function() {
 
     var order = $.parseJSON($.cookie("order"));
     // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
-    // var result = $.grep(order.items, function(e){ return e.product.name == item.product.name });
+    var result = $.grep(order.items, function(e){ return e.product.name == item.product.name });
 
     if (result == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
       result[0].quantity = result[0].quantity + item.quantity
