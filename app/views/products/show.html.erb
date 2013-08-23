@@ -1,4 +1,4 @@
-<article class="product">
+<article class="product" data-product-id=<%= @product.id %>>
   <div class="field field-image">
     <% @product.product_images.each do |pi| %>
       <%= image_tag pi.photo.url  %>
@@ -8,7 +8,8 @@
     <%= @product.name %>
   </div>
   <div class="field field-price">
-    Price: <%= @product.price %>
+    <span class="label">Price:</span>
+    <span class="value"> <%= @product.price %></span>
   </div>
   <div class="add_to_cart">
     <span class="quantity">Quantity</span>
@@ -26,17 +27,14 @@
 </article>
 
 <script type="text/javascript">
-
 $('.add-to-cart').click(function() {
-  var soluong = $('.quantity_number').val();
-  var tongsoluong = $('.quantity_number option').length;
-  add_to_cart(soluong, tongsoluong);
-
-  var quantity_num = $('.quantity_number').val();
+  var tongsoluong = $('.quantity_number').val();
+  var quantity_num = parseInt($('.quantity_number').val());
   var item = {
     product : {
+      id: $('.product').data('product-id'),
       name: $('.field-title').html(),
-      price: $('.field-price').html(),
+      price: parseFloat($('.field-price .value').html()),
       link: ($(location).attr('href'))
     },
     quantity: quantity_num
@@ -48,24 +46,22 @@ $('.add-to-cart').click(function() {
     var items = {
       items: [item]
     }
-
     $.cookie("order", JSON.stringify(items), { path: '/' });
-
   } else {
 
     var order = $.parseJSON($.cookie("order"));
     // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
-    var result = $.grep(order.items, function(e){ return e.product.name == item.product.name });
+    var result = $.grep(order.items, function(e){ return e.product.id == item.product.id });
 
-    if (result == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
+    if (result.length == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
       result[0].quantity = result[0].quantity + item.quantity
       // Sau khi cong luong hang mua thêm thì ta thực hiện update vào cookie order
-      $.cookie("order", JSON.stringify(order), {path: '/'});
-
     } else {
       // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
-      order.items.push(item)
+      order.items.push(item);
     }
+    $.cookie("order", JSON.stringify(order) ,{path: '/'});
+    $('.count').append(tongsoluong);;
   }
 })
 </script>
