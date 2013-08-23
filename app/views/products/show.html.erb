@@ -28,6 +28,8 @@
 <script type="text/javascript">
 function add_to_cart() {
   var quantity = $('.quantity_number').val();
+  alert(quantity);
+  $(".count").html(quantity);
   var item = {
     product : {
       name: $('.field-title').html(),
@@ -37,7 +39,6 @@ function add_to_cart() {
     quantity: quantity
   }
 }
-
 $('.chateau_btn_basket').click(function() {
   var soluong = $('.quantity_number').val();
   var tongsoluong = $('.quantity_number option').length;
@@ -56,7 +57,7 @@ $('.chateau_btn_basket').click(function() {
   if (typeof($.cookie("order")) === "undefined") {
     
     $.cookie("order", JSON.stringify(item), { path: '/' });
-
+     
   } else {
 
     var order = $.parseJSON($.cookie("order"));
