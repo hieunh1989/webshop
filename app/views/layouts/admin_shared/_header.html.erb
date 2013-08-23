@@ -45,7 +45,7 @@
         <% link_to "Shopping cart", "root_path" %>
       </label>
       <div class="count-item">
-        <span>Now in your cart</span>
+        <%= link_to "Now in your cart",  make_payment_orders_path %>
         <span class="count"><%= @count %></span>
       </div>
     </div>

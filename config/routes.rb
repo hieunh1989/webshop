@@ -10,6 +10,12 @@ Webshop::Application.routes.draw do
     end
   end
 
+  resources :orders do 
+    collection do
+      get :make_payment
+    end
+  end
+
   namespace :admin do
     resources :users
     resources :products

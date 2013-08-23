@@ -1,0 +1,17 @@
+ <div class="inner">
+  <table class="table">
+    <% @items.each do |i| -%>
+      <tr class="<%= cycle("odd", "even") %>">
+        <td>
+          <%= i['product']['name'] %>
+        </td>
+        <td>
+          <%= i['product']['id'] %>
+        </td>
+        <td>
+          <%= i['product']['price'] %>
+        </td>
+      </tr>  
+    <% end %>        
+  </table>
+</div>    
