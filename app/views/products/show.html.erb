@@ -28,7 +28,6 @@
 
 <script type="text/javascript">
 $('.add-to-cart').click(function() {
-  var tongsoluong = $('.quantity_number').val();
   var quantity_num = parseInt($('.quantity_number').val());
   var item = {
     product : {
@@ -47,6 +46,8 @@ $('.add-to-cart').click(function() {
       items: [item]
     }
     $.cookie("order", JSON.stringify(items), { path: '/' });
+
+    $(".count").html(quantity_num);
   } else {
 
     var order = $.parseJSON($.cookie("order"));
@@ -60,8 +61,12 @@ $('.add-to-cart').click(function() {
       // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
       order.items.push(item);
     }
+
+    var count = parseInt($(".count").html());
+    var sum = count + quantity_num;
+    $(".count").html(sum);
+    
     $.cookie("order", JSON.stringify(order) ,{path: '/'});
-    $('.count').append(tongsoluong);;
   }
 })
 </script>
