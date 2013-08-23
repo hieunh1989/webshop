@@ -1,9 +1,71 @@
 <article class="product">  
-  Product name: <%= @product.name %> <br />
-  Price: <%= @product.price %><br />
-
-  <% @product.product_images.each do |pi| %>
-    <%= image_tag pi.photo.url  %>
-  <% end %>
-  <br />
+  <div class="field field-image">
+    <% @product.product_images.each do |pi| %>
+      <%= image_tag pi.photo.url  %>
+    <% end %>
+  </div>
+  <div class="field field-title">
+    <%= @product.name %>
+  </div>
+  <div class="field field-price">
+    Price: <%= @product.price %>
+  </div>
+  <div class="add_to_cart">
+    <span class="quantity">Quantity</span>
+    <select name="quantity_number" class="quantity_number">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+    <button class="chateau_btn_basket" id="buy_now_btn">buy now</button>
+  </div>
 </article>
+
+<script type="text/javascript">
+function add_to_cart() {
+  var quantity = $('.quantity_number').val();
+  var item = {
+    product : {
+      name: $('.field-title').html(),
+      price: $('.field-price').html(),
+      link: ($(location).attr('href'))
+    },
+    quantity: quantity
+  }
+}
+
+$('.chateau_btn_basket').click(function() {
+  var soluong = $('.quantity_number').val();
+  var tongsoluong = $('.quantity_number option').length;
+  add_to_cart(soluong, tongsoluong);
+
+  var quantity_num = $('.quantity_number').val();
+  var item = {
+    product : {
+      name: $('.field-title').html(),
+      price: $('.field-price').html(),
+      link: ($(location).attr('href'))
+    },
+    quantity: quantity_num
+  }
+
+  if (typeof($.cookie("order")) === "undefined") {
+    
+    $.cookie("order", JSON.stringify(item), { path: '/' });
+
+  } else {
+
+    var order = $.parseJSON($.cookie("order"));
+
+    if (item == order.items) {
+      order.items.first.quantity = order.items.first.quantity + item.quantity
+    } else {
+      order.items.last = item
+    }
+  }
+})
+</script>
