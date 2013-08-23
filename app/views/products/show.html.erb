@@ -1,4 +1,4 @@
-<article class="product">  
+<article class="product">
   <div class="field field-image">
     <% @product.product_images.each do |pi| %>
       <%= image_tag pi.photo.url  %>
@@ -54,17 +54,27 @@ $('.chateau_btn_basket').click(function() {
   }
 
   if (typeof($.cookie("order")) === "undefined") {
-    
-    $.cookie("order", JSON.stringify(item), { path: '/' });
+    // Can đưa sản phẩm vào một mảng là items.
+    // Vì nếu không khi có nhiều hơn 1 sản phẩm sẽ không phân biệt được
+    var items = {
+      items: [item]
+    }
 
+    $.cookie("order", JSON.stringify(items), { path: '/' });
   } else {
 
     var order = $.parseJSON($.cookie("order"));
+    // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
+    // var result = $.grep(order.items, function(e){ return e.product.name == item.product.name });
 
-    if (item == order.items) {
-      order.items.first.quantity = order.items.first.quantity + item.quantity
+    if (result == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
+      result[0].quantity = result[0].quantity + item.quantity
+      // Sau khi cong luong hang mua thêm thì ta thực hiện update vào cookie order
+      $.cookie("order", JSON.stringify(order), {path: '/'});
+
     } else {
-      order.items.last = item
+      // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
+      order.items.push(item)
     }
   }
 })
