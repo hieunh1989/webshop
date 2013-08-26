@@ -1,15 +1,26 @@
  <div class="inner">
   <table class="table">
     <% @items.each do |i| -%>
-      <tr class="<%= cycle("odd", "even") %>">
+      <tr class="order-products <%= cycle("odd", "even") %>">
         <td>
-          <%= i['product']['name'] %>
+          <span class="image">
+            <%= image_tag i['product']['image'] %>
+          </span>
         </td>
         <td>
-          <%= i['product']['id'] %>
+          <span class="title">
+            <%= link_to i['product']['name'], i['product']['link']  %>
+          </span>
         </td>
         <td>
-          <%= i['product']['price'] %>
+          <span class="title">
+            <%= i['quantity'] %>
+          </span>
+        </td>
+        <td>
+          <span class="title">
+            <%= i['product']['price'] %>
+          </span>
         </td>
       </tr>  
     <% end %>        

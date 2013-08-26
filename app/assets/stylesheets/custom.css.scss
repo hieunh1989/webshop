@@ -239,5 +239,22 @@ article.product {
 }
 .count-item {
   float: right;
-  margin:50px 150px 0 0;
+  margin: 40px 0px 0 0;
+  background: url(shopping-cart.png) no-repeat -30px -18px;
+  background-size: 120px auto;
+  padding: 20px 0px 20px 60px;
+  font-size: 18px;
+  color: #d13b07;
+  a {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #252525;
+  }
 }
+.user-menu li a:hover {
+  color: #d13b07;
+  span {
+    color: white;
+  }
+}
+

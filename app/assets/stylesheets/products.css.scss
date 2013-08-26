@@ -1,3 +1,36 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.order-products {
+  img {
+    width: 150px;
+    border: 1px solid grey;
+  }
+  td:nth-of-type(1) {
+    width: 150px;
+  }
+  .title a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #252525;
+    margin-top: 5px;
+    display: block;
+  }
+  .title a:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+.order-products:hover a {
+  color: white;
+}
+.order-products:hover {
+  background: #d13b07 !important;
+  color: white;
+}
+.order-products.odd {
+  background: #bebebe;
+}
+.order-products.even {
+  background: #919191;
+}

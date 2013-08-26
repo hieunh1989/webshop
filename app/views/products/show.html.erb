@@ -1,7 +1,8 @@
-<article class="product" data-product-id=<%= @product.id %>>
+<article class="product" data-product-id=<%= @product.id %> 
+                          data-image="<%= @product.product_images.sample.photo.url %>" >
   <div class="field field-image">
     <% @product.product_images.each do |pi| %>
-      <%= image_tag pi.photo.url  %>
+     <span> <%= image_tag pi.photo.url %></span>
     <% end %>
   </div>
   <div class="field field-title">
@@ -31,6 +32,7 @@ $('.add-to-cart').click(function() {
   var quantity_num = parseInt($('.quantity_number').val());
   var item = {
     product : {
+      image: $('.product').data('image'),
       id: $('.product').data('product-id'),
       name: $('.field-title').html(),
       price: parseFloat($('.field-price .value').html()),
@@ -39,34 +41,34 @@ $('.add-to-cart').click(function() {
     quantity: quantity_num
   }
 
-  if (typeof($.cookie("order")) === "undefined") {
+  if (typeof($.cookie("cart")) === "undefined") {
     // Can đưa sản phẩm vào một mảng là items.
     // Vì nếu không khi có nhiều hơn 1 sản phẩm sẽ không phân biệt được
     var items = {
       items: [item]
     }
-    $.cookie("order", JSON.stringify(items), { path: '/' });
+    $.cookie("cart", JSON.stringify(items), { path: '/' });
 
     $(".count").html(quantity_num);
   } else {
 
-    var order = $.parseJSON($.cookie("order"));
+    var cart = $.parseJSON($.cookie("cart"));
     // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
-    var result = $.grep(order.items, function(e){ return e.product.id == item.product.id });
+    var result = $.grep(cart.items, function(e){ return e.product.id == item.product.id });
 
     if (result.length == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
       result[0].quantity = result[0].quantity + item.quantity
       // Sau khi cong luong hang mua thêm thì ta thực hiện update vào cookie order
     } else {
       // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
-      order.items.push(item);
+      cart.items.push(item);
     }
 
     var count = parseInt($(".count").html());
     var sum = count + quantity_num;
     $(".count").html(sum);
     
-    $.cookie("order", JSON.stringify(order) ,{path: '/'});
+    $.cookie("cart", JSON.stringify(cart) ,{path: '/'});
   }
 })
 </script>
