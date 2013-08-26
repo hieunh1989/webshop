@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.cookie.js
+//= require jquery.nivo.slider.js

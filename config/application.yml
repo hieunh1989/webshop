@@ -10,6 +10,11 @@ defaults: &defaults
     manager: manager
     customer: customer
     
+  slides:
+    - http://anac.com/demo.jpg
+    - http://anac.com/demo.jpg
+    - http://anac.com/demo.jpg
+
   admin_email: "admin@webshop.com"
 development:
   <<: *defaults

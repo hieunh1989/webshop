@@ -1,5 +1,18 @@
 <div id="slide">
   <div class="main main-slide">
-    This is slide
+    <div class="slider-wrapper theme-default">
+      <div id="slider" class="nivoSlider">
+        <% Product.all.desc(:created_at).limit(3).each do |p| %>
+         <a href="/products/<%= p.id %>"> <%= image_tag p.product_images.sample.photo.url  %></a>
+         <% end %>
+      </div>
+    </div>
+    <script type="text/javascript" src="scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
   </div>
 </div>
