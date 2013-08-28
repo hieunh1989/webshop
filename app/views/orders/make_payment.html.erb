@@ -17,15 +17,16 @@
       <td>
         <span class="title">
           <%= link_to i['product']['name'], i['product']['link']  %>
-        </span>
+        </span>     
+      </td>
       </td>
       <td>
-        <span class="title">
+        <span class="quantity">
           <%= i['quantity'] %>
         </span>
       </td>
       <td>
-        <span class="title">
+        <span class="price">
           <%= i['product']['price'] %>
         </span>
       </td>
@@ -35,7 +36,7 @@
         </span>
       </td>
       <td>
-        <button class="remove-item">Remove</button>
+        <button class="remove-item" data-id="<%= i['product']['id'] %>">Remove</button>
       </td>
     </tr>  
     <% end %>        
@@ -48,3 +49,15 @@
     </tr>
   </table>
 </div>    
+<script type="text/javascript">
+  $('.remove-item').click(function(){
+    var id = $(this).data('id');
+    var cart = $.parseJSON($.cookie("basket"));
+    var abc = $.grep(cart.items, function(e){ return e.product.id != id });
+    var items = {
+      items: abc
+    }
+    $.cookie("basket", JSON.stringify(items) ,{path: '/'});
+    location.reload();
+  })
+</script>
