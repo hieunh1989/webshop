@@ -13,9 +13,10 @@ class ApplicationController < ActionController::Base
 
   def query_cart
     @count = 0
-    unless cookies["cart"].nil?
-      a = JSON.parse(cookies["cart"])
+    unless cookies["basket"].nil?
+      a = JSON.parse(cookies["basket"])
       @count = a["items"].map{ |i| i["quantity"] }.sum
+      @total = a["items"].map{ |b| b["quantity"]*b['product']["price"] }.sum
     end
   end
 end

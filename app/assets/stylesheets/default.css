@@ -29,7 +29,10 @@ Supports Thumbs: true
 
 .theme-default .nivo-controlNav {
 	text-align: center;
-	padding: 20px 0;
+	position: absolute;
+  bottom: 10px;
+  width: 100%;
+  z-index: 100;
 }
 .theme-default .nivo-controlNav a {
 	display:inline-block;

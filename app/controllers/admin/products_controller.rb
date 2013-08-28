@@ -35,7 +35,9 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
     @product = Product.find(params[:id])
+    #binding.pry
     if @product.update_attributes(params[:product])
+
       redirect_to admin_product_path(@product), notice: "Update success #{@product.name}"
     else
       render action: "edit"

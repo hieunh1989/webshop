@@ -1,15 +1,31 @@
 <article class="product" data-product-id=<%= @product.id %> 
                           data-image="<%= @product.product_images.sample.photo.url %>" >
-  <div class="field field-image">
-    <% @product.product_images.each do |pi| %>
-     <span> <%= image_tag pi.photo.url %></span>
-    <% end %>
-  </div>
+
+  <div class="zoom-section">
+      <div class="zoom-small-image">
+        <a href='<%= @product.product_images.first.photo.url %>' class = 'cloud-zoom' id='zoom1' 
+            rel="adjustX: 10, adjustY:-4">
+          <%= image_tag @product.product_images.first.photo.url %>
+        </a>
+      </div>
+      <div class="zoom-desc">    
+        <p>  
+        <% @product.product_images.each do |pi| %>                  
+          <a href='<%= pi.photo.url %>' class='cloud-zoom-gallery' title='Blue' 
+              rel="useZoom: 'zoom1', smallImage: '<%= pi.photo.url %>' ">
+            <%= image_tag pi.photo.url, :class =>"zoom-tiny-image" %>
+          </a>
+        <% end %>
+      </p>
+      </div>
+  </div>   
+
+  
   <div class="field field-title">
     <%= @product.name %>
   </div>
   <div class="field field-price">
-    <span class="label">Price:</span>
+    <span class="label-price">Price:</span>
     <span class="value"> <%= @product.price %></span>
   </div>
   <div class="add_to_cart">
@@ -28,47 +44,47 @@
 </article>
 
 <script type="text/javascript">
-$('.add-to-cart').click(function() {
-  var quantity_num = parseInt($('.quantity_number').val());
-  var item = {
-    product : {
-      image: $('.product').data('image'),
-      id: $('.product').data('product-id'),
-      name: $('.field-title').html(),
-      price: parseFloat($('.field-price .value').html()),
-      link: ($(location).attr('href'))
-    },
-    quantity: quantity_num
-  }
-
-  if (typeof($.cookie("cart")) === "undefined") {
-    // Can đưa sản phẩm vào một mảng là items.
-    // Vì nếu không khi có nhiều hơn 1 sản phẩm sẽ không phân biệt được
-    var items = {
-      items: [item]
+  $('.add-to-cart').click(function() {
+    var quantity_num = parseInt($('.quantity_number').val());
+    var item = {
+      product : {
+        image: $('.product').data('image'),
+        id: $('.product').data('product-id'),
+        name: $('.field-title').html(),
+        price: parseFloat($('.field-price .value').html()),
+        link: ($(location).attr('href'))
+      },
+      quantity: quantity_num
     }
-    $.cookie("cart", JSON.stringify(items), { path: '/' });
 
-    $(".count").html(quantity_num);
-  } else {
+    if (typeof($.cookie("basket")) === "undefined") {
+      // Can đưa sản phẩm vào một mảng là items.
+      // Vì nếu không khi có nhiều hơn 1 sản phẩm sẽ không phân biệt được
+      var items = {
+        items: [item]
+      }
+      $.cookie("basket", JSON.stringify(items), { path: '/' });
 
-    var cart = $.parseJSON($.cookie("cart"));
-    // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
-    var result = $.grep(cart.items, function(e){ return e.product.id == item.product.id });
-
-    if (result.length == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
-      result[0].quantity = result[0].quantity + item.quantity
-      // Sau khi cong luong hang mua thêm thì ta thực hiện update vào cookie order
+      $(".count").html(quantity_num);
     } else {
-      // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
-      cart.items.push(item);
-    }
 
-    var count = parseInt($(".count").html());
-    var sum = count + quantity_num;
-    $(".count").html(sum);
-    
-    $.cookie("cart", JSON.stringify(cart) ,{path: '/'});
-  }
-})
+      var cart = $.parseJSON($.cookie("basket"));
+      // Cần check xem có sản phẩm đó trong cookie order hay chưa bằng cách sử dụng:
+      var result = $.grep(cart.items, function(e){ return e.product.id == item.product.id });
+
+      if (result.length == 1) { // Trường hợp đã có sản phẩm đó trong giỏ hàng, ta thực hiện cập nhật sản phẩm
+        result[0].quantity = result[0].quantity + item.quantity
+        // Sau khi cong luong hang mua thêm thì ta thực hiện update vào cookie order
+      } else {
+        // Ta có items là một mảng nên chỉ việc push nó vào mảng là được.
+        cart.items.push(item);
+      }
+
+      var count = parseInt($(".count").html());
+      var sum = count + quantity_num;
+      $(".count").html(sum);
+      
+      $.cookie("basket", JSON.stringify(cart) ,{path: '/'});
+    }
+  });
 </script>

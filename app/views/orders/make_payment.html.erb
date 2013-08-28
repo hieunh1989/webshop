@@ -1,28 +1,50 @@
  <div class="inner">
   <table class="table">
+    <tr>
+      <th>Images</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total price</th>
+    </tr>
     <% @items.each do |i| -%>
-      <tr class="order-products <%= cycle("odd", "even") %>">
-        <td>
-          <span class="image">
-            <%= image_tag i['product']['image'] %>
-          </span>
-        </td>
-        <td>
-          <span class="title">
-            <%= link_to i['product']['name'], i['product']['link']  %>
-          </span>
-        </td>
-        <td>
-          <span class="title">
-            <%= i['quantity'] %>
-          </span>
-        </td>
-        <td>
-          <span class="title">
-            <%= i['product']['price'] %>
-          </span>
-        </td>
-      </tr>  
+    <tr class="order-products <%= cycle("odd", "even") %>">
+      <td>
+        <span class="image">
+          <%= image_tag i['product']['image'] %>
+        </span>
+      </td>
+      <td>
+        <span class="title">
+          <%= link_to i['product']['name'], i['product']['link']  %>
+        </span>
+      </td>
+      <td>
+        <span class="title">
+          <%= i['quantity'] %>
+        </span>
+      </td>
+      <td>
+        <span class="title">
+          <%= i['product']['price'] %>
+        </span>
+      </td>
+      <td>
+        <span class="total-price">
+          <%= i['product']['price']*i['quantity'] %>
+        </span>
+      </td>
+      <td>
+        <button class="remove-item">Remove</button>
+      </td>
+    </tr>  
     <% end %>        
+    <tr>
+      <td>Total price all</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="last"><%= @total %></td>
+    </tr>
   </table>
 </div>    

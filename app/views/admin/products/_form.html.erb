@@ -25,10 +25,12 @@
 
   <div class="group">
     <%= f.fields_for :product_images, :html => {:multipart => true} do |builder| %>
+    <div class="fields">
       <%= builder.file_field :photo %></br>
-      <%= builder.hidden_field :retained_photo %></br>
-      <%= builder.check_box :remove_photo%>Remove image</br>
+      <%= builder.hidden_field :_destroy %>
+      <%= link_to_function "remove", "remove_fields(this)" %>
       <%= image_tag builder.object.photo.thumb('100x100').url if builder.object.photo_uid %></br>
+    </div>
     <% end -%>
   </div>
         

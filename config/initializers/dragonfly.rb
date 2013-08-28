@@ -1,4 +1,5 @@
 require 'dragonfly'
+require 'dragonfly/rails/images'
 
 app = Dragonfly[:images]
 
@@ -17,6 +18,6 @@ app.datastore.configure do |c|
   c.username = cfg['username']
   c.password = cfg['password']
 end
-app.configure_with(:imagemagick)
+Dragonfly[:images].configure_with(:imagemagick)
 app.configure_with(:rails)
 app.define_macro_on_include(Mongoid::Document, :image_accessor)

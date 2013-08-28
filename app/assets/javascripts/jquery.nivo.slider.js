@@ -18,8 +18,8 @@
             currentImage: '',
             totalSlides: 0,
             running: false,
-            paused: false,
-            stop: false,
+            paused: true,
+            stop: true,
             controlNavEl: false
         };
 

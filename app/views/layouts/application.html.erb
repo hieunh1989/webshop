@@ -10,10 +10,15 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
+<body
+<% if params["controller"] == "pages" && params["action"] == "home" %>
+  class="home-page"
+<% else %>
+  class="<%= params['controller']%>"
+<% end %>
+>
   <div id="page">
     <%= render 'layouts/admin_shared/header' %>
-    
     <div class="flash">
       <% flash.each do |type, message| -%>
         <div class="message <%= type %>">
@@ -21,9 +26,11 @@
         </div>
       <% end -%>
     </div>
-
-    <%= render 'layouts/admin_shared/slide' %>
-    <div id="content">
+    <% if params["controller"] == "pages" && params["action"] == "home" %>
+      <%= render 'layouts/admin_shared/slide' %>
+      <%= render 'layouts/admin_shared/adver' %>
+    <% end -%>
+    <div id="page-content">
       <div class="main main-content">
         <%= yield %>
       </div>  

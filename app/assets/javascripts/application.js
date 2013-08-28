@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.cookie.js
 //= require jquery.nivo.slider.js
+//= require webshop.js
+//= require cloud-zoom.1.0.2.js
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").value = "true";
+  $(link).parent().remove();
+}
