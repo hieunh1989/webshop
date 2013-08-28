@@ -1,11 +1,12 @@
  <div class="inner">
   <table class="table">
-    <tr>
+    <tr class="th">
       <th>Images</th>
       <th>Name</th>
       <th>Quantity</th>
       <th>Price</th>
       <th>Total price</th>
+      <th></th>
     </tr>
     <% @items.each do |i| -%>
     <tr class="order-products <%= cycle("odd", "even") %>">

@@ -7,14 +7,23 @@
   src: url("fonts/MYRIADPRO-COND.OTF"); }
 
 @font-face {
+  font-family: "proxima";
+  src: url("fonts/VNF-ProximaNova-Semibold.ttf"); 
+  font-weight: bold;}
+
+@font-face {
   font-family: "myriad consender";
   src: url("fonts/MYRIADPRO-BOLDCOND.OTF");
   font-weight: bold; }
 
 @font-face {
   font-family: "proxima";
-  src: url("fonts/VNF-ProximaNova-Light.ttf");
-  font-weight: bold; }
+  src: url("fonts/VNF-ProximaNova-Light.ttf"); }
+
+.th {
+  background-color: #252525;
+  color: white;
+}
 
 body {
   background: url(bg.jpg) no-repeat center top #e8e8e8;
@@ -220,7 +229,7 @@ li {
   text-indent: -9999px; }
 
 .field-image:hover a {
-  background: url(hover-product.png) center top;
+  background: url(hover-product.png) no-repeat center top;
   top: 0px; }
 
 .field.field-title a {
@@ -308,7 +317,7 @@ li {
 
 .footer-nocol {
   background: #252525;
-  height: 40px;
+  height: 60px;
   width: 100%; }
 
 .products article #zoom1 img {
@@ -356,6 +365,17 @@ li {
   width: 500px;
   float: left; }
 
+.orders button {
+  padding: 7px 10px 4px 10px;
+  font-family: myriad consender;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.orders button:hover {
+  color:#d13b07;
+}
 
 /* This is the moving lens square underneath the mouse pointer. */
 .cloud-zoom-lens {
@@ -393,3 +413,12 @@ li {
   border:1px solid #000;
 }
 
+.main-footer-nocol span {
+  color: white;
+  margin-top: 15px;
+  display: block;
+  background: url(logo.PNG) no-repeat left top;
+  background-size: 100px auto;
+  padding-left: 110px;
+  padding-top: 5px;
+}

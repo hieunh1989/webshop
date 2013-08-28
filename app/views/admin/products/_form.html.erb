@@ -12,6 +12,12 @@
   </div>
 
   <div class="group">
+    <%= f.label :categories, t("activerecord.attributes.product.name", :default => "Categories"), :class => :label %>
+    <%= f.text_field :categories, :class => 'text_field', value: @categories %>
+    <span class="description">Ex: the categories of product</span>
+  </div>
+
+  <div class="group">
     <%= f.label :description, t("activerecord.attributes.product.description", :default => "Description"), :class => :label %>
     <%= f.text_area :description, size: "120x12", :class => 'text_field' %>
     <span class="description">Ex: the description of product</span>

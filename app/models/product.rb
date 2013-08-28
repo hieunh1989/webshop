@@ -5,6 +5,7 @@ class Product
   field :name, type: String
   field :description, type: String
   field :price, type: Float
+  field :categories, type: Array
 
   validates :name, presence: true
   validates :price, presence: true, numericality: true

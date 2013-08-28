@@ -10,6 +10,7 @@ class Admin::ProductsController < Admin::BaseController
   def edit
     # binding.pry
     @product = Product.find(params[:id])
+    @categories = @product.categories.map{|i| i}.join(",") unless @product.categories.nil?
   end
 
   def destroy
@@ -25,6 +26,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def create
+    params[:product][:categories] = params[:product][:categories].split(", ")
     @product = Product.new(params[:product])
     if @product.save
       redirect_to admin_product_path(@product), notice: "Create success #{@product.name}"
@@ -34,6 +36,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def update
+    params[:product][:categories] = params[:product][:categories].split(",")
     @product = Product.find(params[:id])
     #binding.pry
     if @product.update_attributes(params[:product])
