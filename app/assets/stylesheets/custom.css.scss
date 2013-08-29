@@ -168,7 +168,7 @@ li {
   margin: 30px 0;
   border-bottom: 1px solid grey; }
 
-.home-page article.product {
+article.product {
   width: 270px;
   margin-right: 30px;
   padding-bottom: 20px;
@@ -256,8 +256,7 @@ li {
 
 .main-content {
   border-bottom: 1px solid grey;
-  margin-bottom: 10px;
-  height: 1000px; }
+  margin-bottom: 10px; }
 
 .user-menu li a:hover {
   color: #d13b07; }
@@ -326,14 +325,14 @@ li {
 
 .zoom-desc img {
   width: 80px;
-  height: 60px; }
+  height: auto; }
 
 .zoom-desc a {
   width: 80px;
-  height: 60px;
   overflow: hidden;
-  display: inline-block;
-  border: 1px solid grey; }
+  display: block;
+  border: 1px solid grey;
+  margin-bottom: 10px; }
 
 .zoom-desc a:hover {
   border: 1px solid #d13b07; }
@@ -346,18 +345,32 @@ li {
 #page-content {
   margin: 30px 0; }
 
-.products .field-title {
+div.product .field-title {
   font-family: myriad consender;
   font-size: 25px;
   color: #252525;
   font-weight: bold;
 }
 
-.products .field-title, .products .field-price, .products .add_to_cart, .product .field-content {
+div.product .field-title, div.product .field-price, div.product .add_to_cart, div.product .field-content {
   float: right;
   overflow: hidden;
   width: 550px;
   padding: 10px;
+  margin: 0;
+}
+
+.zoom-small-image {
+  float: right;
+  width: 400px;
+  border: 1px solid grey;
+}
+
+.products .main-content {
+  padding-bottom: 50px;
+}
+
+.zoom-desc p {
   margin: 0;
 }
 
@@ -421,4 +434,11 @@ li {
   background-size: 100px auto;
   padding-left: 110px;
   padding-top: 5px;
+}
+
+.flash {
+  width: 1170px;
+  margin: 20px auto;
+  font-weight: bold;
+  font-size: 20px;
 }

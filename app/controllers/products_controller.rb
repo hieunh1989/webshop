@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   
   def index
+    # binding.pry
     @products = Product.all.select{|p| !p.categories.blank? && p.categories.include?(params[:categories]) }
+    
   end
 
   def home

@@ -1,4 +1,8 @@
-<article class="product" data-product-id=<%= @product.id %> 
+<div class="wat-cf">
+  <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_product_path(@product), :class => "button" %> 
+  <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_product_path(@product), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+</div>
+<div class="product" data-product-id=<%= @product.id %> 
                           data-image="<%= @product.product_images.sample.photo.url %>" >
 
   <div class="zoom-section">
@@ -29,7 +33,7 @@
     <span class="value"> <%= @product.price %></span>
   </div>
   <div class="field field-content">
-    <span class="value"> <%= @product.description %></span>
+    <span class="value"> <%= @product.description.html_safe %></span>
   </div>
   <div class="add_to_cart">
     <span class="quantity">Quantity</span>
@@ -85,7 +89,7 @@
 
       var count = parseInt($(".count").html());
       var sum = count + quantity_num;
-      $(".count").html(sum);
+      $(".count").html(sum +" items");
       
       $.cookie("basket", JSON.stringify(cart) ,{path: '/'});
     }

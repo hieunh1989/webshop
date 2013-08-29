@@ -19,7 +19,7 @@
 
   <div class="group">
     <%= f.label :description, t("activerecord.attributes.product.description", :default => "Description"), :class => :label %>
-    <%= f.text_area :description, size: "120x12", :class => 'text_field' %>
+    <%= f.text_area :description, size: "120x12", :class => "tinymce" %>
     <span class="description">Ex: the description of product</span>
   </div>
 
@@ -38,6 +38,10 @@
       <%= image_tag builder.object.photo.thumb('100x100').url if builder.object.photo_uid %></br>
     </div>
     <% end -%>
+
+    <%= tinymce %>
+
+
   </div>
         
 <div class="group navform wat-cf">
@@ -47,6 +51,9 @@
         :default => "Save")}") %> 
     <%= t("web-app-theme.save", :default => "Save") %>
   </button>
-  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
-	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), admin_products_path, :class => "text_button_padding link_button" %>
+  <span class="text_button_padding"> or </span>
+	<%= link_to t("web-app-theme.view", :default => "View"), product_path(@product), :class => "text_button_padding link_button" %>
+  <span class="text_button_padding"> - </span>
+  <%= link_to t("web-app-theme.cancel", :default => "Cancel"), admin_products_path, :class => "text_button_padding link_button" %>
 </div>
+

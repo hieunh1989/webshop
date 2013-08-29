@@ -26,7 +26,7 @@
           </th>
           <th class="last">&nbsp;</th>
         </tr>
-        <% @users.each do |user| -%>
+        <% @users.all.desc(:created_at).each do |user| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>  
             <% if user.avatar.nil? %>

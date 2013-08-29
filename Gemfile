@@ -18,6 +18,9 @@ gem 'settingslogic'
 gem 'therubyracer', :platforms => :ruby
 gem 'execjs'
 
+#editor
+gem "tinymce-rails", "~> 4.0.2"
+
 gem "koala", "~> 1.7.0rc1"
 gem "faraday"
 

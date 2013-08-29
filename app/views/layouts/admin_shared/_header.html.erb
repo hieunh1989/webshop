@@ -54,15 +54,42 @@
   <!-- end celtral-header -->
   <nav id="catalog-menu">
     <ul class="menu">
-      <li><%= link_to "Men", root_path, :class => "active"%></li>
-      <li><%= link_to "women"%></li>
-      <li><%= link_to "collection"%></li>
-      <li><%= link_to "T-SHIRT"%></li>
-      <li><%= link_to "BAG"%></li>
-      <li><%= link_to "CLOTHES"%></li>
-      <li><%= link_to "HAT"%></li>
-      <li><%= link_to "GLASS"%></li>
-      <li><%= link_to "SKIRT"%></li>
+      <li>      
+        <%= link_to "Men", products_path(:categories => "men"), 
+            :class => "#{ 'active' if params[:categories] == 'men'}" %>
+      </li>
+      <li>
+        <%= link_to "women", "/products?categories=women", 
+            :class => "#{ 'active' if params[:categories] == 'women'}"%>
+      </li>
+      <li>
+        <%= link_to "collection", products_path(:categories => "collection"), 
+        :class => "#{ 'active' if params[:categories] == 'collection'}" %>
+      </li>
+      <li>
+        <%= link_to "t-shirt", products_path(:categories => "t-shirt"), 
+        :class => "#{ 'active' if params[:categories] == 't-shirt'}" %>
+      </li>
+      <li>
+        <%= link_to "bag", products_path(:categories => "bag"), 
+        :class => "#{ 'active' if params[:categories] == 'bag'}" %>
+      </li>
+      <li>
+        <%= link_to "clothes", products_path(:categories => "clothes"), 
+        :class => "#{ 'active' if params[:categories] == 'clothes'}" %>
+      </li>
+      <li>
+        <%= link_to "hat", products_path(:categories => "hat"), 
+        :class => "#{ 'active' if params[:categories] == 'hat'}" %>
+      </li>
+      <li>
+        <%= link_to "glass", products_path(:categories => "glass"), 
+        :class => "#{ 'active' if params[:categories] == 'glass'}" %>
+      </li>
+      <li>
+        <%= link_to "skirt", products_path(:categories => "skirt"), 
+        :class => "#{ 'active' if params[:categories] == 'skirt'}"%>
+      </li>
     </ul>
     <div id="search-form">
       <form action="">

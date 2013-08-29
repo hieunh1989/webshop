@@ -14,7 +14,7 @@
 <% if params["controller"] == "pages" && params["action"] == "home" %>
   class="home-page"
 <% else %>
-  class="<%= params['controller']%>"
+  class="<%= params['controller']%> <%= params[:categories] %>"
 <% end %>
 >
   <div id="page">
@@ -32,7 +32,11 @@
     <% end -%>
     <div id="page-content">
       <div class="main main-content">
-        <%= yield %>
+        <% if params["controller"] == "pages" && params["action"] == "home" %>
+          
+        <% else %>
+          <%= yield %>
+        <% end %>
       </div>  
     </div>
     <%= render 'layouts/admin_shared/footer' %>
